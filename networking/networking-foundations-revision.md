@@ -50,3 +50,33 @@ Laptop → Phone → Mobile Network → Internet → Server
 
 - The phone forwards the laptop's traffic through its available internet connection.
 - NAT may translate the laptop's private IP traffic and track connections so responses can return to the correct device.
+
+
+## Ping Command Practical
+
+The `ping` command tests network reachability by sending ICMP Echo Requests and checking for Echo Replies.
+
+### Experiments
+
+1. `ping 127.0.0.1`
+   - Result: 4 packets received, 0% packet loss.
+   - Purpose: Tests the local TCP/IP networking stack.
+
+2. `ping 192.168.1.1`
+   - Result: 4 packets received, 0% packet loss.
+   - Purpose: Tests connectivity to the local default gateway.
+
+3. `ping 8.8.8.8`
+   - Result: 4 packets received, 0% packet loss.
+   - Purpose: Tests reachability to a public IP destination.
+
+4. `ping google.com`
+   - Result: Resolved to `142.250.118.100`; 4 packets received, 0% packet loss.
+   - Purpose: Observes hostname resolution followed by a ping test.
+
+### Key Learning
+- `127.0.0.1` is the loopback address.
+- A default gateway helps forward traffic to destinations outside the local subnet.
+- A successful ping to a public IP does not guarantee that every website or internet service is working.
+- DNS resolution translates domain names into IP addresses.
+- A failed ping does not always mean the destination is unreachable; ICMP traffic may be blocked.
